@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <time.h>
+clock_t clock(void);
+void circulate(double);
+
+int main(void)
+{
+	double time[3];
+
+	time[0] = clock();
+	time[1] = clock();
+	time[2] = (time[1] - time[0]) / CLOCKS_PER_SEC;
+	circulate(time[2]);
+
+	return 0;
+}
+
+void circulate(double time)
+{
+	const double n = clock();
+	while (clock() < (n + time))
+	{
+		printf("Ahhhhhhh");
+	}
+
+}
